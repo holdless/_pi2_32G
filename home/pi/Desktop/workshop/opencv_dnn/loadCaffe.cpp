@@ -1,6 +1,11 @@
 #include "IhsorihGoogLeNetObjectRecognizer.h"
 #include <iostream>
+#include <time.h>
+
 using namespace std;
+
+#define _MILLIONTH 1E-9
+
 int main(int argc, char **argv) {
 	// load image
 	cv::Mat frame = imread("space_shuttle.jpg");
@@ -22,11 +27,14 @@ int main(int argc, char **argv) {
 		    "bvlc_googlenet.caffemodel",
 		    "synset_words.txt");
 
-    cout<<endl<<"start"<<endl;
+	struct timespec t1, t2;
+	clock_gettime(CLOCK_REALTIME, &t1);
 	objRec.setImage(frame);
 	objRec.predict();
-    cout<<endl<<"end"<<endl;
+	clock_gettime(CLOCK_REALTIME, &t2);
 	objRec.putProbBar(frame);
+	double lapseTime = (t2.tv_sec - t1.tv_sec) + (t2.tv_nsec - t1.tv_nsec)*_MILLIONTH;
+	cout << endl << "predicting time: " << lapseTime << endl;
 
 	cv::imshow("etst", frame);
 	if (waitKey(0) == 27) //wait for 'esc' key press for 30 ms. If 'esc' key is pressed, break loop

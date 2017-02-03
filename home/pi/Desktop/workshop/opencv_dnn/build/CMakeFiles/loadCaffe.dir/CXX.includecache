@@ -33,6 +33,8 @@ IhsorihGoogLeNetObjectRecognizer.h
 /home/pi/Desktop/workshop/opencv_dnn/IhsorihGoogLeNetObjectRecognizer.h
 iostream
 -
+time.h
+-
 
 /usr/local/include/opencv/cxcore.h
 opencv2/core/core_c.h

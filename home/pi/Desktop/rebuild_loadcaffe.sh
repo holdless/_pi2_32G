@@ -4,7 +4,7 @@ sudo mkdir build
 cd build
 
 #sudo cmake -DCMAKE_BUILD_TYPE=Release -G "CodeBlocks - Unix Makefiles" ..
-sudo cmake -DCMAKE_BUILD_TYPE=Release ..
+sudo cmake -DCMAKE_BUILD_TYPE=Debug ..
 
 sudo make
 
